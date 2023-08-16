@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int verificaAnoBissexto(int yyyy){
+int verifyLeapYear(int yyyy){
 
     if(yyyy%4 == 0 && yyyy%100 != 0 ){
 
@@ -21,7 +21,7 @@ int verificaAnoBissexto(int yyyy){
     }
 }
 
-int somaMeses(int mm, int bissexto){
+int sumDays(int mm, int bissexto){
 	
     int soma = 0;
 
@@ -47,7 +47,6 @@ int somaMeses(int mm, int bissexto){
                 break;
 
             }
-			
 		
 		case 4: case 6: case 9: case 11:
 			soma += 30;
@@ -60,7 +59,7 @@ int somaMeses(int mm, int bissexto){
 
 }
 
-int calculaDiferenca(int dd1, int dd2){
+int difference(int dd1, int dd2){
 
     if(dd1 > dd2){
 
@@ -81,24 +80,25 @@ int main(){
 
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int dd1, mm1, yyyy, dd2, mm2, bissexto;
-    char date1[10], date2[5];
+    int dd1, mm1, yyyy, dd2, mm2;
+    char date[11], a;
 
     printf("%s", "Digite a primeira data no formato dd/mm/yyyy: ");
-    scanf("%s", &date1);
+    fgets(date, 11, stdin);
+	
+	sscanf(date, "%d/%d/%d", &dd1, &mm1, &yyyy);
+	
+    while((a = getchar()) != '\n' && a != EOF) {}
 
-    //printf("\n%s", "Digite a segunda data no formato dd/mm/yyyy: ");
-    //scanf("%s", &date2);
+    printf("\n%s", "Digite a segunda data no formato dd/mm/yyyy: ");
+    fgets(date, 11, stdin);
 
-    printf("\n%c", date1[1]);
+	sscanf(date, "%d/%d/%*d", &dd2, &mm2);
 
-    //bissexto = verificaAnoBissexto(yyyy);
+	dd1 = (sumDays(mm1, verifyLeapYear(yyyy))) + dd1;
 
-	//dd1 = (somaMeses(mm1, bissexto)) + dd1;
+    dd2 = (sumDays(mm2, verifyLeapYear(yyyy))) + dd2;
 
-    //dd2 = (somaMeses(mm2, bissexto)) + dd2;
-
-    //printf("\n%i", dd1);
-    //printf("\n%i", dd2);
+    printf("\n%i", difference(dd1, dd2));
 
 }

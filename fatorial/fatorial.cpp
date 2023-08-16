@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-int fatorial(int value){
+int factorial(int value){
 
     for(int y = value-1; y > 0; y--){
 
@@ -20,6 +20,6 @@ int main(){
 
     scanf("%i", &value);
 
-    printf("\n%i", fatorial(value));
+    printf("\n%i", factorial(value));
 
 }
