@@ -3,11 +3,27 @@
 
 int factorial(int value){
 
-    for(int y = value-1; y > 0; y--){
+    if(value == 0 or value == 1){
+
+        value = 1;
+
+    }
+    else if(value > 1){
+
+        for(int y = value-1; y > 0; y--){
 
         value = value*y;
 
+        }
     }
+    else{
+
+        value = 0;
+
+    }
+
+    return value;
+
 }
 
 int main(){
@@ -20,6 +36,6 @@ int main(){
 
     scanf("%i", &value);
 
-    printf("\n%i", factorial(value));
+    factorial(value) != 0 ? printf("%i", factorial(value)) : printf("Fatorial se aplica somente a números reais!");
 
 }

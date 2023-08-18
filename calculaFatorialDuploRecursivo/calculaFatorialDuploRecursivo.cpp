@@ -33,6 +33,6 @@ int main(){
 	
 	scanf("%i", &a);
 	
-	printf("\n%i", doubleFactorial(a));
+	doubleFactorial(a) != 0 ? printf("%i", doubleFactorial(a)) : printf("Fatorial duplo se aplica somente a números reais!");
 	
 }

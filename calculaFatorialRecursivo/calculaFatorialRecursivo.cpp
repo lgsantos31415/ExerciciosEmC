@@ -33,6 +33,6 @@ int main(){
 	
 	scanf("%i", &a);
 	
-	printf("\n%i", factorial(a));
+	factorial(a) != 0 ? printf("%i", factorial(a)) : printf("Fatorial se aplica somente a números reais!");
 	
 }
