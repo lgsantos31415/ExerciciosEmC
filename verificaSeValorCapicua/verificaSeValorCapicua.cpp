@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <locale.h>
 
 int power(int base, int expo){
 	
@@ -90,9 +91,11 @@ int comparAlgarismos(int value, int comparador){
 
 int main(){
 
+	setlocale(LC_ALL, "Portuguese");
+
 	int value, comparador;
 	
-	printf("Digite um numero: ");
+	printf("Digite um número: ");
 	scanf("%i", &value);
 	
 	int vet[numAlgarismos(value)];

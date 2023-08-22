@@ -3,24 +3,14 @@
 
 int strCounter(char str[]){
 
-    int y;
+    int y = 0;
 
-    while(str[y]){
+    while(str[y] != '\0'){
 
         y++;
 
     }
 
     return y+1;
-
-}
-
-int main(){
-
-    setlocale(LC_ALL, "Portuguese_Brazilian");
-
-    char str[] = "Hello World!";
-
-    printf("\n%i", strCounter(str));
 
 }

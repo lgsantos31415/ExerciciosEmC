@@ -10,7 +10,7 @@ int paridade(int a){
 
 int main(){
 	
-	setlocale(LC_ALL, "Portuguese_Brazil");
+	setlocale(LC_ALL, "Portuguese");
 	
 	int a;
 	

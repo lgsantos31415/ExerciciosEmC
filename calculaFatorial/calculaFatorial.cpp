@@ -28,7 +28,7 @@ int factorial(int value){
 
 int main(){
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
+    setlocale(LC_ALL, "Portuguese");
 
     int value;
 

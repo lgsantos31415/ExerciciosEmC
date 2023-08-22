@@ -51,7 +51,7 @@ void strInverter(char str[], char *str2){
 
 int main(){
 	
-	setlocale(LC_ALL, "Portuguese_Brazil");
+	setlocale(LC_ALL, "Portuguese");
 	
 	char str[] = "socorram me subi no onibus em marrocos";
 

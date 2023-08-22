@@ -78,7 +78,7 @@ int difference(int dd1, int dd2){
 
 int main(){
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
+    setlocale(LC_ALL, "Portuguese");
 
     int dd1, mm1, yyyy, dd2, mm2;
     char date[11], a;
