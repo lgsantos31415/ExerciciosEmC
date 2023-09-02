@@ -1,7 +1,7 @@
-
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
+#include <stdlib.h>
 
 void somaDigitos(int valor, int *numeroDigitos, int *digitoDivisivel){
 
@@ -18,27 +18,49 @@ void somaDigitos(int valor, int *numeroDigitos, int *digitoDivisivel){
 
 void somaPontos(int numeroDigitos, int *numeroPontos){
 
-    int y, x;
-
-    for(y = 1, x = 1; y < numeroDigitos; y++, x++){
+    for(int y = 0, x = 0; y < numeroDigitos; y++, x++){
 
         if(x == 3){
 
-            x = 1;
-            *numeroPontos += 1;
+        x = 0;
+
+        *numeroPontos += 1;
 
         }
     }
 }
 
-void acrescentaPonto(int numeroDigitos){
+void acrescentaPontos(char *str, int numeroPontos) {
 
-    for(int y = numeroDigitos-1; y > -1 ; y--){
+    int x, y, z, tamanho = strlen(str);
 
-        //printf("\n%c", str[y]);
-
+    char *v = (char *) malloc(tamanho);
+   
+    for(y = tamanho-1; y > tamanho-4; y--, x++){
+   
+        v[x] = str[y];
+   
+    }
+   
+    for(y = tamanho-4; y > -1; x++, z++){
+   
+        if(z != 3){
+   
+        v[x] = str[y];
+        y -= 1;
+   
+        }
+        else if( z == 3){
+   
+            v[x] = '.';
+            z = -1;
+   
+        }
     }
 
+    v[x] = '\0';
+
+    printf(v);
 }
 
 int main(){
@@ -49,16 +71,16 @@ int main(){
 
     int numeroDigitos, digitoDivisivel, numeroPontos = 0;
 
-    printf("Digite um valor:");
+    printf("Digite um valor: ");
     scanf("%lf", &valor);
 
     somaDigitos((int)valor, &numeroDigitos, &digitoDivisivel);
     somaPontos(numeroDigitos, &numeroPontos);
 
-    //char str[numeroDigitos+3];
+    char str[numeroDigitos+3];
 
-    //sprintf(str, "%.2lf", valor);
+    sprintf(str, "%.2lf", valor);
 
-    printf("\n%i", numeroPontos);
-    
+    acrescentaPontos(str, numeroPontos);
+   
 }
