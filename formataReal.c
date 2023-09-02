@@ -2,37 +2,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include "../calculoTamanhoString/calculoTamanhoString.c"
 
-int sumDigits(int value){
+void somaDigitos(int valor, int *numeroDigitos, int *digitoDivisivel){
 
-    int counter = 1;
+    int y, contador;
 
-    for(int y = 1; value/y > 9; y *= 10){
-
-        counter++;
+    for(y = 1, contador = 1; valor/y > 9; y *= 10, contador++){
 
     }
 
-    return counter;
-
-}
-
-int sumPointers(int value){
-
-    int counter = 0;
-
-    for(int y = 1, z = 1; y <= value; y++, z++){
-
-        if(z > 3){
-
-            z = 0;
-            counter++;
-
-        }
-    }
-
-    return counter;
+    *digitoDivisivel = y;
+    *numeroDigitos = contador;
 
 }
 
@@ -40,20 +20,19 @@ int main(){
 
     setlocale(LC_ALL, "Portuguese");
 
-    float value;
+    double valor;
 
-    printf("Escreva um valor: ");
+    int numeroDigitos, digitoDivisivel;
 
-    scanf("%f", &value);
+    printf("Digite um valor: ");
+    scanf("%lf", &valor);
 
-    int digits = sumDigits((int)value);
+    somaDigitos((int)valor, &numeroDigitos, &digitoDivisivel);
 
-    int pointers = sumPointers(digits);
+    char str[numeroDigitos+3];
 
-    char str[digits+pointers+4];
+    sprintf(str, "%.2lf", valor);
 
-    sprintf(str, "%.2f", value);
-
-    printf("\n%i", strCounter(str));
-
+    
+    
 }
