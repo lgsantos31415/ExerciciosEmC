@@ -1,63 +1,63 @@
 #include <stdio.h>
 #include <locale.h>
 
-int power(int base, int expo){
+int potencia(int base, int expoente){
 	
-	int result = 1;
+	int resultado = 1;
 	
-	if(expo == 0){
+	if(expoente == 0){
 		
 	}
 	else{
 		
-		for(int y = 0; y < expo; y++){
+		for(int y = 0; y < expoente; y++){
 		
-			result = result*base;
+			resultado = resultado*base;
 		
 		}	
 		
 	}
 
-	return result;
+	return resultado;
 }
 
-int numAlgarismos(int value){
+int numeroAlgarismos(int valor){
 	
-	int result = 0;
+	int resultado = 0;
 	
-	for(int y = 1; value/y >= 1; y = y*10){
+	for(int y = 1; valor/y >= 1; y = y*10){
 		
-		result++;
+		resultado++;
 		
 	}
 	
-	return result;
+	return resultado;
 	
 }
 
-void separAlgarismos(int value, int qnt, int *vet){
+void separaAlgarismos(int valor, int expo, int *vet){
 	
-	qnt--;
+	expo--;
 	
-	int divisor = power(10, qnt), control = qnt;
+	int divisor = potencia(10, expo), control = expo;
 	
 	for(int y = divisor; y > 0; y = y/10){
 		
-		vet[control] = value/y;
-		value = value%y;
+		vet[control] = valor/y;
+		valor = valor%y;
 		
 		control--;
 		
 	}
 }
 
-int invertAlgarismos(int qnt, int *vet){
+int invertAlgarismos(int expo, int *vet){
 	
-	qnt--;
+	expo--;
 	
-	int multiplier = power(10, qnt), soma = 0;
+	int multiplier = potencia(10, expo), soma = 0;
 	
-	for(int y = 0; y <= qnt; y++){
+	for(int y = 0; y <= expo; y++){
 		
 		vet[y] = vet[y]*multiplier;
 		
@@ -65,7 +65,7 @@ int invertAlgarismos(int qnt, int *vet){
 		
 	}
 	
-	for(int y = 0; y <= qnt; y++){
+	for(int y = 0; y <= expo; y++){
 		
 		soma = soma + vet[y];
 		
@@ -75,16 +75,16 @@ int invertAlgarismos(int qnt, int *vet){
 	
 }
 
-int comparAlgarismos(int value, int comparador){
+int comparaAlgarismos(int valor, int comparador){
 	
-	if(value == comparador){
+	if(valor == comparador){
 		
-		return 1;
+		return 0;
 		
 	}
 	else{
 		
-		return 0;
+		return 1;
 		
 	}
 }
@@ -93,17 +93,17 @@ int main(){
 
 	setlocale(LC_ALL, "Portuguese");
 
-	int value, comparador;
+	int valor, comparador;
 	
 	printf("Digite um número: ");
-	scanf("%i", &value);
+	scanf("%i", &valor);
 	
-	int vet[numAlgarismos(value)];
+	int vet[numeroAlgarismos(valor)];
+
+	separaAlgarismos(valor, numeroAlgarismos(valor), vet);
 	
-	separAlgarismos(value, numAlgarismos(value), vet);
+	comparador = invertAlgarismos(numeroAlgarismos(valor), vet);
 	
-	comparador = invertAlgarismos(numAlgarismos(value), vet);
-	
-	printf("\n%i", comparAlgarismos(value, comparador));
+	comparaAlgarismos(valor, comparador) == 0 ? printf("É capícua") : printf("Não é capícua");
 	
 }
