@@ -75,7 +75,13 @@ void strRemoveEspaco(char *str){
 		}
 	}
 
-	strCopia(str, str2);
+	for(x = 0; x < y; x++){
+
+		str[x] = str2[x];
+
+	}
+
+	str[x] = '\0';
 
 }
 
