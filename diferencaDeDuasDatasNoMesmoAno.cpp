@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int verifyLeapYear(int yyyy){
+int verificaAnoBissexto(int yyyy){
 
     if(yyyy%4 == 0 && yyyy%100 != 0 ){
 
@@ -21,7 +21,7 @@ int verifyLeapYear(int yyyy){
     }
 }
 
-int sumDays(int mm, int bissexto){
+int somaDias(int mm, int bissexto){
 	
     int soma = 0;
 
@@ -59,7 +59,7 @@ int sumDays(int mm, int bissexto){
 
 }
 
-int difference(int dd1, int dd2){
+int diferenca(int dd1, int dd2){
 
     if(dd1 > dd2){
 
@@ -90,15 +90,17 @@ int main(){
 	
     while((a = getchar()) != '\n' && a != EOF) {}
 
-    printf("\n%s", "Digite a segunda data no formato dd/mm/yyyy: ");
+    //limpa o buffer de entrada
+
+    printf("%s", "Digite a segunda data no formato dd/mm/yyyy: ");
     fgets(date, 11, stdin);
 
 	sscanf(date, "%d/%d/%*d", &dd2, &mm2);
 
-	dd1 = (sumDays(mm1, verifyLeapYear(yyyy))) + dd1;
+	dd1 = (somaDias(mm1, verificaAnoBissexto(yyyy))) + dd1;
 
-    dd2 = (sumDays(mm2, verifyLeapYear(yyyy))) + dd2;
+    dd2 = (somaDias(mm2, verificaAnoBissexto(yyyy))) + dd2;
 
-    printf("\n%i", difference(dd1, dd2));
+    printf("%i", diferenca(dd1, dd2));
 
 }

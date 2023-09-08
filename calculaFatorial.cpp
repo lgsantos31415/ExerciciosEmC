@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <locale.h>
 
-int factorial(int value){
+long long int fatorial(long long int valor){
 
-    if(value == 0 or value == 1){
+    if(valor == 0 or valor == 1){
 
-        value = 1;
+        valor = 1;
 
     }
-    else if(value > 1){
+    else if(valor > 1){
 
-        for(int y = value-1; y > 0; y--){
+        for(int y = valor-1; y > 0; y--){
 
-        value = value*y;
+        valor = valor*y;
+
 
         }
     }
     else{
 
-        value = 0;
+        valor = 0;
 
     }
 
-    return value;
+    return valor;
 
 }
 
@@ -30,12 +31,12 @@ int main(){
 
     setlocale(LC_ALL, "Portuguese");
 
-    int value;
+    long long int valor;
 
-    printf("Digite um valor: ");
+    printf("Digite um número: ");
 
-    scanf("%i", &value);
+    scanf("%llu", &valor);
 
-    factorial(value) != 0 ? printf("%i", factorial(value)) : printf("Fatorial se aplica somente a números reais!");
+    fatorial(valor) == 0 ? printf("Fatorial se aplica somente a números reais!") : printf("%llu", fatorial(valor));
 
 }

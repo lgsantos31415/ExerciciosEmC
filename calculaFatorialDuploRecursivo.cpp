@@ -1,17 +1,17 @@
-#include <stdio.h>;
-#include <locale.h>;
+#include <stdio.h>
+#include <locale.h>
 
-int doubleFactorial(int a){
+long long int fatorialDuplo(long long int a){
 
 	if(a == 0 or a == 1){
 
         a = 1;
 
     }
-    else if(a > 1){
+	else if(a > 1){
 
-		a *= doubleFactorial(a-2);
-		
+		a *= fatorialDuplo(a-2);
+
 	}
 	else{
 		
@@ -27,12 +27,12 @@ int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int a;
+	long long int a;
 	
 	printf("Escreva um número: ");
 	
-	scanf("%i", &a);
+	scanf("%llu", &a);
 	
-	doubleFactorial(a) != 0 ? printf("%i", doubleFactorial(a)) : printf("Fatorial duplo se aplica somente a números reais!");
-	
+	fatorialDuplo(a) == 0 ? printf("Fatorial duplo se aplica somente a números reais!") : printf("%llu", fatorialDuplo(a));
+
 }

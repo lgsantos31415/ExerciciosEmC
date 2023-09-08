@@ -1,7 +1,7 @@
-#include <stdio.h>;
-#include <locale.h>;
+#include <stdio.h>
+#include <locale.h>
 
-int factorial(int a){
+long long int fatorial(long long int a){
 
 	if(a == 0 or a == 1){
 
@@ -10,7 +10,7 @@ int factorial(int a){
     }
     else if(a > 1){
 
-		a *= factorial(a-1);
+		a *= fatorial(a-1);
 		
 	}
 	else{
@@ -27,12 +27,12 @@ int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int a;
+	long long int a;
 	
 	printf("Escreva um número: ");
 	
-	scanf("%i", &a);
+	scanf("%llu", &a);
 	
-	factorial(a) != 0 ? printf("%i", factorial(a)) : printf("Fatorial se aplica somente a números reais!");
+	fatorial(a) == 0 ? printf("Fatorial se aplica somente a números reais!") : printf("%llu", fatorial(a));
 	
 }
