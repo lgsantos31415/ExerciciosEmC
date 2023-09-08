@@ -180,6 +180,6 @@ int main(){
 	e retornar o segundo array com formatação correta
 	*/
 
-	printf(str2);
+	printf("R$ %s", str2);
 
 }
