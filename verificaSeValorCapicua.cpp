@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <locale.h>
 
-int potencia(int base, int expoente){
+int potencia(int base, int expoenteente){
 	
 	int resultado = 1;
 	
-	if(expoente == 0){
+	if(expoenteente == 0){
 		
 	}
 	else{
 		
-		for(int y = 0; y < expoente; y++){
+		for(int y = 0; y < expoenteente; y++){
 		
 			resultado = resultado*base;
 		
@@ -35,29 +35,29 @@ int numeroDigitos(int valor){
 	
 }
 
-void separaAlgarismos(int valor, int expo, int *vet){
+void separaAlgarismos(int valor, int expoente, int *vet){
 	
-	expo--;
+	expoente--;
 	
-	int divisor = potencia(10, expo), control = expo;
+	int divisor = potencia(10, expoente), controle = expoente;
 	
 	for(int y = divisor; y > 0; y = y/10){
 		
-		vet[control] = valor/y;
+		vet[controle] = valor/y;
 		valor = valor%y;
 		
-		control--;
+		controle--;
 		
 	}
 }
 
-int inveterAlgarismos(int expo, int *vet){
+int inveterAlgarismos(int expoente, int *vet){
 	
-	expo--;
+	expoente--;
 	
-	int multiplicador = potencia(10, expo), soma = 0;
+	int multiplicador = potencia(10, expoente), soma = 0;
 	
-	for(int y = 0; y <= expo; y++){
+	for(int y = 0; y <= expoente; y++){
 		
 		vet[y] = vet[y]*multiplicador;
 		
@@ -65,7 +65,7 @@ int inveterAlgarismos(int expo, int *vet){
 		
 	}
 	
-	for(int y = 0; y <= expo; y++){
+	for(int y = 0; y <= expoente; y++){
 		
 		soma = soma + vet[y];
 		
