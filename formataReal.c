@@ -169,7 +169,10 @@ int main(){
 
 	char *str2 = (char *)malloc(tamanho);
 
-	//cria um array dinamicamente com o numero de elementos necessarios
+	/*
+	cria um array dinamicamente com o numero de elementos necessarios
+	por conta do tamanho do tipo char ser 1 byte não se faz necessário multiplicar pelo numero de elementos que sao necessarios
+	*/
 
 	atribuiPonto(str, str2, tamanho);
 
