@@ -13,6 +13,8 @@ int somaDigitos(int valor){
 
 }
 
+//funcao soma quantos digitos tem um dado valor inteiro
+
 int strlen(char *str){
 
 	int contador = 0;
@@ -49,6 +51,8 @@ void substituiPonto(char *str){
 	}
 }
 
+//funcao encontra ponto em um array de caracteres e substitui por virgula
+
 void inverteStr(char *str){
 
 	char str2[strlen(str)];
@@ -68,6 +72,8 @@ void inverteStr(char *str){
 	}
 }
 
+//dado um array de caracteres, inverte ele e atribui no mesmo a inversão dos caracteres
+
 int somaPonto(int numDigitos){
 
 	int x, y, z;
@@ -85,6 +91,8 @@ int somaPonto(int numDigitos){
 	return z;
 
 }
+
+//funcao calcula quantos pontos serao necessario um numero ter
 
 void atribuiPonto(char *str, char *str2, int tamanho){
 
@@ -149,11 +157,11 @@ int main(){
 
 	substituiPonto(str);
 
-	//substitui o ponto por virgula
+	//substitui o ponto por virgula do array str
 
 	int numPonto = somaPonto(numDigitos);
 
-	//soma quantos pontos serao necessarios para acrescentar ao numero de elementos de um array
+	//atribui a variavel numPonto quantos pontos serao necessarios um dado valor ter para ser formatado corretamente
 
 	int tamanho = strlen(str) + numPonto;
 
@@ -167,7 +175,10 @@ int main(){
 
 	atribuiPonto(str, str2, tamanho);
 
-	//formata o valor da primeira string e atribui para a segunda string
+	/*
+	formata o valor da primeira string e atribui para a segunda string utilizando ponteiros para enviar o array a ser formatado
+	e retornar o segundo array com formatação correta
+	*/
 
 	printf(str2);
 
