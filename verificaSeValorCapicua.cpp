@@ -21,7 +21,7 @@ int potencia(int base, int expoente){
 	return resultado;
 }
 
-int numeroAlgarismos(int valor){
+int numeroDigitos(int valor){
 	
 	int resultado = 0;
 	
@@ -51,17 +51,17 @@ void separaAlgarismos(int valor, int expo, int *vet){
 	}
 }
 
-int invertAlgarismos(int expo, int *vet){
+int inveterAlgarismos(int expo, int *vet){
 	
 	expo--;
 	
-	int multiplier = potencia(10, expo), soma = 0;
+	int multiplicador = potencia(10, expo), soma = 0;
 	
 	for(int y = 0; y <= expo; y++){
 		
-		vet[y] = vet[y]*multiplier;
+		vet[y] = vet[y]*multiplicador;
 		
-		multiplier = multiplier/10;
+		multiplicador = multiplicador/10;
 		
 	}
 	
@@ -98,12 +98,23 @@ int main(){
 	printf("Digite um número: ");
 	scanf("%i", &valor);
 	
-	int vet[numeroAlgarismos(valor)];
+	int vet[numeroDigitos(valor)];
 
-	separaAlgarismos(valor, numeroAlgarismos(valor), vet);
+	//cria um vetor com o numero de digitos
+
+	separaAlgarismos(valor, numeroDigitos(valor), vet);
 	
-	comparador = invertAlgarismos(numeroAlgarismos(valor), vet);
+	//separa em um dado vetor o valor a ser separado e quantos digitos ele possue
+
+	comparador = inveterAlgarismos(numeroDigitos(valor), vet);
 	
+	//atribui ao comparar os valores invertidos da entrada
+
 	comparaAlgarismos(valor, comparador) == 0 ? printf("É capícua") : printf("Não é capícua");
 	
+	/*
+	a funcao caomparaAlgarismo retorna 0 se forem iguais e 1 se forem diferentes
+	ao mesmo tempo que utiliza de um operador ternário para apresentar ao usuário se trata-se de um valor capícua
+	*/
+
 }
