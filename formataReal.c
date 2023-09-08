@@ -167,9 +167,7 @@ int main(){
 
 	//atribui a variavel tamanho o numero de elementos que sera necessario um array possuir considerando o ponto
 
-	char *str2;
-
-	str2 = (char *)malloc(tamanho);
+	char *str2 = (char *)malloc(tamanho);
 
 	//cria um array dinamicamente com o numero de elementos necessarios
 
