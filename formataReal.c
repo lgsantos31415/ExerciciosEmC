@@ -37,7 +37,7 @@ int strlen(char *str){
 
 }
 
-//funcao conta quantos elementos um array de caracteres possui
+//funcao conta quantos elementos um array de caracteres possui sem utilizar a biblioteca string
 
 void substituiPonto(char *str){
 
