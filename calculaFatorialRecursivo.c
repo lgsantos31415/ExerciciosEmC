@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <locale.h>
 
-long long int fatorial(long long int a){
+long long fatorial(long long a){
 
-	if(a == 0 or a == 1){
+	if(a == 0 || a == 1){
 
         a = 1;
 
@@ -27,12 +27,12 @@ int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	long long int a;
+	long long a;
 	
 	printf("Escreva um número: ");
 	
-	scanf("%llu", &a);
+	scanf("%lld", &a);
 	
-	fatorial(a) == 0 ? printf("Fatorial se aplica somente a números reais!") : printf("%llu", fatorial(a));
+	fatorial(a) == 0 ? printf("Fatorial se aplica somente a números reais!") : printf("%lld", fatorial(a));
 	
 }

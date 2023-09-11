@@ -9,7 +9,7 @@ int verificaAnoBissexto(int yyyy){
         return 1;
 
     }
-    else if(yyyy%4 == 0  || yyyy%400 == 0){
+    else if(yyyy%4 == 0 || yyyy%400 == 0){
 
         return 1;
 

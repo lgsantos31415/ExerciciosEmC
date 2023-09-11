@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-int strlen(char str[]){
+int tamanhoStr(char str[]){
 
     int y = 0;
 
@@ -19,6 +19,6 @@ int main(){
 
     char str[] = "Hello World!";
 
-    printf("%i", strlen(str));
+    printf("%i", tamanhoStr(str));
 
 }
