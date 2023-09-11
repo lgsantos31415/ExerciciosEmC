@@ -147,7 +147,7 @@ int main(){
 
 	//atribui a variavel numDigitos o numero de digitos
 
-	char str[numDigitos+3];
+	char *str = (char *)malloc(numDigitos+3);
 
 	//cria um array de caracteres com o numero de digitos e soma 3 para acrescentar o espaco para virgula e duas casas decimais
 

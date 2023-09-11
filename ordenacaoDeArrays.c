@@ -20,7 +20,7 @@ int main(){
 
     int array[] = {5, 42, 37}, tamanho = sizeof(array)/sizeof(int), maximo, indice;
 
-    max(array, tamanho, &maximo, &indice);
+    int *array2 = (int *)malloc(tamanho*sizeof(int));
 
     printf("%i %i %i", tamanho, maximo, indice);
 
