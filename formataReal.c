@@ -140,7 +140,7 @@ int main(){
 
 	double valor;
 
-	printf("Digite um valor: ");
+	printf("Digite um valor (utilize \'.\' para separador de decimais): ");
 	scanf("%lf", &valor);
 
 	int numDigitos = somaDigitos((int)valor);
@@ -149,7 +149,7 @@ int main(){
 
 	char str[numDigitos+3];
 
-	//soma 3 para acrescentar o espaco para virgula e duas casas decimais
+	//cria um array de caracteres com o numero de digitos e soma 3 para acrescentar o espaco para virgula e duas casas decimais
 
 	sprintf(str, "%.2f", valor);
 
@@ -171,7 +171,7 @@ int main(){
 
 	/*
 	cria um array dinamicamente com o numero de elementos necessarios
-	por conta do tamanho do tipo char ser 1 byte não se faz necessário multiplicar pelo numero de elementos que sao necessarios
+	por conta do tamanho do tipo char ser 1 byte não se faz necessário multiplicar pelo numero de elementos
 	*/
 
 	atribuiPonto(str, str2, tamanho);
@@ -181,6 +181,6 @@ int main(){
 	e retornar o segundo array com formatação correta
 	*/
 
-	printf("R$ %s", str2);
+	printf("R$%s", str2);
 
 }
