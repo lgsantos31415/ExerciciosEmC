@@ -88,7 +88,7 @@ int main(){
         printf("O resultado da divisão é: %.2f", divisao(a, b));
         break;
     case 5:
-        printf("O resultado da potência do primeiro valor elavado ao segundo é: %.2f", potencia(a, b));
+        printf("O resultado da potência do primeiro valor elavado ao segundo ã: %.2f", potencia(a, b));
         break;
     default:
         break;
