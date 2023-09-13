@@ -19,7 +19,10 @@ void buscaSequencial(int *array, int tamanho, int *maior){
 int main() {
     int array[] = {5, 7, 22, 22, 6, 94, 67, 82, 94, 37}, tamanho = sizeof(array)/sizeof(int), maior;
 
-    //declara um array, calcula seu tamanho e uma variavel maior que ira receber o maior elemento do array
+    /*
+    declara um array, atribui a variavel tamanho o calcula do tamanho do array
+    e a variavel maior que ira receber o maior elemento do array
+    */
 
     buscaSequencial(array, tamanho, &maior);
 
