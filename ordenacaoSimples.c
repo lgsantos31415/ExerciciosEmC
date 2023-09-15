@@ -2,33 +2,31 @@
 #include <stdlib.h>
 #include <locale.h>
 
-void ordenarLista(int *array, int tamanho){
+void declaraVetor(int **vetor, int tamanho){
+    (*vetor) = (int*)malloc(sizeof(int)*tamanho);
+}
 
+void ordenarLista(int *vetor, int tamanho){
     int temporario;
 
     for(int x = 0; x < tamanho; x++){
-        for(int y = 0; y < tamanho; y++){
-            if(array[y] > array[y+1]){
-                temporario = array[y+1];
-                array[y+1] = array[y];
-                array[y] = temporario;
+        for(int y = 0; y < tamanho-1; y++){
+            if(vetor[y] > vetor[y+1]){
+                temporario = vetor[y];
+                vetor[y] = vetor[y+1];
+                vetor[y+1] = temporario;
             }
             else{
                 continue;
             }
         }
     }
-
-    for(int y = 0; y < tamanho; y++){
-        printf("%i\n", array[y]);
-    }
 }
 
 int main(){
-    
     setlocale(LC_ALL, "Portuguese");
 
-    int entrada;
+    int *vetor, entrada, tamanho = 0;
 
     while(1){
 
@@ -36,11 +34,34 @@ int main(){
         scanf("%i", &entrada);
 
         if(entrada == 1){
-            
+            tamanho = 0;
+
+            printf("Digite o tamanho do vetor: ");
+            scanf("%i", &tamanho);
+
+            declaraVetor(&vetor, tamanho);
+
+            printf("\nDigite os elementos do vetor:\n");
+
+            for(int y = 0; y < tamanho; y++){
+                scanf("%i", &entrada);
+                vetor[y] = entrada;
+            }
         }
 
         else if(entrada == 2){
+            if(tamanho == 0){
+                printf("\nDeclare um vetor\n");
+            }
+            else{
+                ordenarLista(vetor, tamanho);
 
+                printf("\n");
+
+                for(int y = 0; y < tamanho; y++){
+                    printf("%i\n", vetor[y]);
+                }
+            }
         }
 
         else if(entrada == 3){

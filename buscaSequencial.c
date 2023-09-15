@@ -7,7 +7,6 @@ void declaraArray(int** array, int tamanho){
 }
 
 int main(){
-	
 	setlocale(LC_ALL, "Portuguese");
 	
 	int *array, tamanho = 0, entrada, contador = 0;
