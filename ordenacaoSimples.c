@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 void ordenarLista(int *array, int tamanho){
 
@@ -25,16 +26,29 @@ void ordenarLista(int *array, int tamanho){
 
 int main(){
     
+    setlocale(LC_ALL, "Portuguese");
+
     int entrada;
 
     while(1){
 
-        printf("Selecione uma das opções:\n1 - Declarar um vetor\n2 - Ordenar um vetor\n3 - Sair");
-        scanf("%i", entrada);
+        printf("\nSelecione uma das opções:\n1 - Declarar um vetor\n2 - Ordenar um vetor\n3 - Sair\n");
+        scanf("%i", &entrada);
 
         if(entrada == 1){
             
         }
 
+        else if(entrada == 2){
+
+        }
+
+        else if(entrada == 3){
+            break;
+        }
+
+        else if(entrada < 1 || entrada > 3){
+            printf("\nDigite uma entrada válida!\n");
+        }
     }
 }

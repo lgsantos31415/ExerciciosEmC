@@ -13,19 +13,18 @@ int main(){
 	int *array, tamanho = 0, entrada, contador = 0;
 	
 	while(1){
-		printf("Escolha uma das opções:\n1 - Declarar Vetor\n2 - Encontrar elemento\n3 - Sair\n");
+		printf("\nEscolha uma das opções:\n1 - Declarar Vetor\n2 - Encontrar elemento\n3 - Sair\n");
 		scanf("%i", &entrada);
 		
 		if(entrada == 1){
 			contador = 0;
 				
 			printf("\nDigite o tamanho do vetor: ");
-				
 			scanf("%i", &tamanho);
 				
 			declaraArray(&array, tamanho);
 				
-			printf("\nDigite os elementos do vetor:\n\n");
+			printf("\nDigite os elementos do vetor:\n");
 				
 			while(1){
 				if(contador == tamanho){
@@ -47,8 +46,7 @@ int main(){
 			}
 			else{
 				
-				printf("\nQual elemento você deseja encontrar?\n");
-				
+				printf("\nQual elemento você deseja encontrar? ");
 				scanf("%i", &entrada);
 				
 				for(int y = 0; y<tamanho; y++){
@@ -59,10 +57,10 @@ int main(){
 				}
 
                 if(contador > 0){
-                    printf("\nElemento foi encontrado %i vez(es)\n\n", contador);
+                    printf("\nElemento foi encontrado %i vez(es)\n", contador);
                 }
                 else{
-                    printf("\nElemento %i não foi encontrado\n\n", entrada);
+                    printf("\nElemento %i não foi encontrado\n", entrada);
                 }
 			}
 		}
@@ -72,7 +70,7 @@ int main(){
 		}
 
 		else if (entrada < 1 || entrada > 3){
-			printf("\nDigite uma entrada válida\n\n");
+			printf("\nDigite uma entrada válida\n");
 		}
 	}
 }
