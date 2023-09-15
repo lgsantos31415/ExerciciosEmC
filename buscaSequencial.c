@@ -3,9 +3,7 @@
 #include <locale.h>
 
 void declaraArray(int** array, int tamanho){
-	
 	(*array) = (int*)malloc(sizeof(int)*tamanho);
-	
 }
 
 int main(){
@@ -19,7 +17,6 @@ int main(){
 		scanf("%i", &entrada);
 		
 		if(entrada == 1){
-			
 			contador = 0;
 				
 			printf("\nDigite o tamanho do vetor: ");
@@ -43,7 +40,6 @@ int main(){
 		}
 		
 		else if(entrada == 2){
-			
 			contador = 0;
 			
 			if(tamanho == 0){
@@ -70,6 +66,7 @@ int main(){
                 }
 			}
 		}
+
 		else if(entrada == 3){
 			break;
 		}
