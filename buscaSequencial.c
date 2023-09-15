@@ -18,22 +18,18 @@ int main(){
 		printf("Escolha uma das opções:\n1 - Declarar Vetor\n2 - Encontrar elemento\n3 - Sair\n");
 		scanf("%i", &entrada);
 		
-		if(entrada < 1 || entrada > 3){
-			printf("\nDigite uma entrada válida\n\n");
-		}
-		
-		else if(entrada == 1){
+		if(entrada == 1){
 			
 			contador = 0;
-			
+				
 			printf("\nDigite o tamanho do vetor: ");
-			
+				
 			scanf("%i", &tamanho);
-			
+				
 			declaraArray(&array, tamanho);
-			
+				
 			printf("\nDigite os elementos do vetor:\n\n");
-			
+				
 			while(1){
 				if(contador == tamanho){
 					break;
@@ -76,6 +72,10 @@ int main(){
 		}
 		else if(entrada == 3){
 			break;
+		}
+
+		else if (entrada < 1 || entrada > 3){
+			printf("\nDigite uma entrada válida\n\n");
 		}
 	}
 }
