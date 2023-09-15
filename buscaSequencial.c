@@ -1,38 +1,81 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
-void buscaSequencial(int *array, int tamanho, int *maior){
-
-    *maior = array[0];
-
-    //atribui para a variavel maior o primeiro elemento do array
-
-    for(int x = 0; x < tamanho; x++){
-        if(array[x] > *maior){
-            *maior = array[x];
-        }
-    }
-
-    //recebe o maior elemento do array
+void declaraArray(int** array, int tamanho){
+	
+	(*array) = (int*)malloc(sizeof(int)*tamanho);
+	
 }
 
-int main() {
-    int array[] = {5, 7, 22, 22, 6, 94, 67, 82, 94, 37}, tamanho = sizeof(array)/sizeof(int), maior;
+int main(){
+	
+	setlocale(LC_ALL, "Portuguese");
+	
+	int *array, tamanho = 0, entrada, contador = 0;
+	
+	while(1){
+		printf("Escolha uma das opções:\n1 - Declarar Vetor\n2 - Encontrar elemento\n3 - Sair\n");
+		scanf("%i", &entrada);
+		
+		if(entrada < 1 || entrada > 3){
+			printf("\nDigite uma entrada válida\n\n");
+		}
+		
+		else if(entrada == 1){
+			
+			contador = 0;
+			
+			printf("\nDigite o tamanho do vetor: ");
+			
+			scanf("%i", &tamanho);
+			
+			declaraArray(&array, tamanho);
+			
+			printf("\nDigite os elementos do vetor:\n\n");
+			
+			while(1){
+				if(contador == tamanho){
+					break;
+				}
+				else{
+					scanf("%i", &entrada);
+					array[contador] = entrada;
+					contador += 1;
+				}
+			}
+		}
+		
+		else if(entrada == 2){
+			
+			contador = 0;
+			
+			if(tamanho == 0){
+				printf("\nDeclare um vetor\n\n");
+			}
+			else{
+				
+				printf("\nQual elemento você deseja encontrar?\n");
+				
+				scanf("%i", &entrada);
+				
+				for(int y = 0; y<tamanho; y++){
+					if(entrada == array[y]){
+						printf("\nElemento %i na posição %i\n", entrada, y);
+						contador += 1;
+					}
+				}
 
-    /*
-    declara um array, atribui a variavel tamanho o calcula do tamanho do array
-    e a variavel maior que ira receber o maior elemento do array
-    */
-
-    buscaSequencial(array, tamanho, &maior);
-
-    for(int x = 0; x < tamanho; x++){
-
-        if(array[x] == maior){
-            printf("indice: %i elemento: %i\n", x, array[x]);
-        }
-    }
-
-    //apresenta na tela o maior elemento e seu indice
-
+                if(contador > 0){
+                    printf("\nElemento foi encontrado %i vez(es)\n\n", contador);
+                }
+                else{
+                    printf("\nElemento %i não foi encontrado\n\n", entrada);
+                }
+			}
+		}
+		else if(entrada == 3){
+			break;
+		}
+	}
 }
