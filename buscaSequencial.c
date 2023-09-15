@@ -32,7 +32,7 @@ int main(){
 		
 		else if(entrada == 2){
 			if(tamanho == 0){
-				printf("\nDeclare um vetor\n\n");
+				printf("\nDeclare um vetor\n");
 			}
 			else{
                 contador = 0;

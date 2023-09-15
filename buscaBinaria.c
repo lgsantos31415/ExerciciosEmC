@@ -49,27 +49,28 @@ int main(){
 		
 		else if(entrada == 2){
 			if(tamanho == 0){
-				printf("\nDeclare um vetor\n\n");
+				printf("\nDeclare um vetor\n");
 			}
 			else{
                 contador = 0;
 
 				printf("\nQual elemento você deseja encontrar? ");
 				scanf("%i", &entrada);
-				
-				for(int y = 0; y<tamanho; y++){
-					if(entrada == vetor[y]){
-						printf("\nElemento %i na posição %i\n", entrada, y);
-						contador += 1;
+
+				int inicio = 0, fim = tamanho-1, meio = (fim-inicio)/2;
+
+				while(vetor[meio] != entrada){
+					if(entrada > vetor[meio]){
+						inicio = meio;
 					}
+					else{
+						fim = meio;
+					}
+					meio = (fim-inicio)/2;
+					contador += 1;
 				}
 
-                if(contador > 0){
-                    printf("\nElemento foi encontrado %i vez(es)\n", contador);
-                }
-                else{
-                    printf("\nElemento %i não foi encontrado\n", entrada);
-                }
+				printf("A busca foi executada %i vez(es) para encontrar o elemento %i no indice: %i", contador, entrada, meio);
 			}
 		}
 
