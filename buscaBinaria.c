@@ -67,7 +67,7 @@ int main(){
 			else{
 				contador = 0;
 
-                int inicio = 0, fim = tamanho, meio = (fim+inicio)/2;
+                int inicio = 0, fim = tamanho, meio = (inicio + fim)/2;
 
 				ordenarLista(vetor, tamanho);
 
