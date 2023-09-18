@@ -9,7 +9,7 @@ void declaraVetor(int **vetor, int tamanho){
 void ordenarLista(int *vetor, int tamanho){
     int temporario;
 
-    for(int x = 0; x < tamanho; x++){
+    for(int x = 0; x < tamanho-1; x++){
         for(int y = 0; y < tamanho-1; y++){
             if(vetor[y] > vetor[y+1]){
                 temporario = vetor[y];
