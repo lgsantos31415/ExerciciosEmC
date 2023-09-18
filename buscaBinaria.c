@@ -23,6 +23,19 @@ void ordenarLista(int *vetor, int tamanho){
     }
 }
 
+void buscaBinaria(int *vetor, int *inicio, int *meio, int *fim, int *contador, int entrada){
+	while(vetor[*meio] != entrada){
+		if(entrada > vetor[*meio]){
+			*inicio = *meio;
+		}
+		else if(entrada < vetor[*meio]){
+			*fim = *meio;
+		}
+		*meio = (*inicio + *fim)/2;
+		*contador += 1;
+	}
+}
+
 int main(){
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -52,23 +65,22 @@ int main(){
 				printf("\nDeclare um vetor\n");
 			}
 			else{
-                contador = 0;
+				contador = 0;
 
-				printf("\nQual elemento você deseja encontrar? ");
+                int inicio = 0, fim = tamanho, meio = (fim+inicio)/2;
+
+				ordenarLista(vetor, tamanho);
+
+				printf("\nO vetor foi ordenado:\n");
+
+				for(int y = 0; y < tamanho; y++){
+					printf("Indice: %i elemento: %i\n", y, vetor[y]);
+				}
+
+				printf("\nQual elemento você deseja encontrar?\n");
 				scanf("%i", &entrada);
 
-				int inicio = 0, fim = tamanho-1, meio = (fim-inicio)/2;
-
-				while(vetor[meio] != entrada){
-					if(entrada > vetor[meio]){
-						inicio = meio;
-					}
-					else{
-						fim = meio;
-					}
-					meio = (fim-inicio)/2;
-					contador += 1;
-				}
+				buscaBinaria(vetor, &inicio, &meio, &fim, &contador, entrada);
 
 				printf("A busca foi executada %i vez(es) para encontrar o elemento %i no indice: %i", contador, entrada, meio);
 			}
@@ -78,7 +90,7 @@ int main(){
 			break;
 		}
 
-		else if (entrada < 1 || entrada > 3){
+		else{
 			printf("\nDigite uma entrada válida\n");
 		}
 	}
